@@ -1,5 +1,7 @@
 # Fullstack.UI
 
+Developing Angular 14 Crud Application for employee management system using angular and .NET
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
 
 ## Development server
