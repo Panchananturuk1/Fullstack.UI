@@ -24,4 +24,14 @@ export class EmployeesService {
     return this.http.post<Employee[]>(this.baseApiUrl + '/api/controller', addEmployeeRequest); 
   }
 
+  getEmployee(id: string): Observable<Employee> {
+    return this.http.get<Employee>(this.baseApiUrl + '/api/controller/' + id);
+  }
+
+  updateEmployee(id: string, updateEmployeeRequest: Employee):
+  Observable<Employee> {
+    return this.http.put<Employee>(this.baseApiUrl + '/api/employees/' + id,
+    updateEmployeeRequest);
+  }
+
 }
