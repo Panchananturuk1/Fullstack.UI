@@ -16,7 +16,7 @@ export class AddEmployeeComponent implements OnInit {
     email: '',
     phone: 0,
     salary: 0,
-    department: '',
+    department: ''
   }
 
   constructor(private employeeService: EmployeesService, private router: Router) { }

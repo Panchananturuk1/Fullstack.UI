@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter,Input, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Employee } from 'src/app/models/employee.model';
 import { EmployeesService } from 'src/app/services/employees.service';
@@ -19,6 +19,9 @@ export class EditEmployeeComponent implements OnInit {
     salary: 0,
     department: '',
   }
+
+  // @Input() hero?: Employee;
+  // @Output() heroesUpdated = new EventEmitter<Employee[]>();
 
 
   constructor(private route: ActivatedRoute, private employeeService: EmployeesService,
@@ -42,14 +45,24 @@ export class EditEmployeeComponent implements OnInit {
     })
   }
 
-  updateEmployee(){
+  // updateEmployee(){
+  //   this.employeeService.updateEmployee(this.employeeDetails.id, this.employeeDetails)
+  //   .subscribe({
+  //     next: (response) => {
+  //       this.router.navigate(['employees']);
+  //     }
+  //   });
+  // }
+
+
+  updateEmployee = () => {
     this.employeeService.updateEmployee(this.employeeDetails.id, this.employeeDetails)
-    .subscribe({
-      next: (response) => {
-        this.router.navigate(['employees']);
-      }
-    });
-  }
+      .subscribe(
+        response => this.router.navigate(['employees']),
+        error => console.error(error)
+      );
+  };
+
 
   deleteEmployee(id: string){
     this.employeeService.deleteEmployee(id)
